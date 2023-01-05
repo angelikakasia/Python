@@ -1,0 +1,99 @@
+from tkinter import*
+
+def WriteSlogan(txtbox):
+    if txtbox != "":
+        try:
+            thetext=txtbox.get()
+            x=float(thetext)
+            if x < 0 or x==0:
+                error1=("The number has to be positive and greater than 0")
+                txtbox3.insert(0, str(error1))
+                wu=inmain.configure(bg="lime")
+            else:
+                number=0.62137
+                M= x * number
+                txtbox2.insert(0, str(M))
+        except (ValueError, TypeError):
+            error2=("Data ERROR")
+            txtbox3.insert(0,str(error2))
+            winmain.configure(bg="yellow")
+        except:
+            error3=("Data ERROR")
+            txtbox3.insert(0,str(error3))
+            winmain.configure(bg="lime")
+            
+def clearit():
+    txtbox.delete(0,"end")
+    txtbox2.delete(0,"end")
+    txtbox3.delete(0,"end")
+    winmain.configure(bg="pink")
+    #fromula for miles M= K/1.609344
+
+
+
+winmain=Tk()
+winmain.geometry('900x760')
+winmain.title("**WELCOME TO ANGELICZKA WORLD**") 
+winmain.configure(bg='LightSalmon1')
+equation=""
+txt=Label(winmain,
+          text="Kilometers to Miles,M= K/1.609344 ",
+          fg="yellow",
+          bg="blue",
+          font=("Times New Roman",30))
+txtboxlbl=Label(winmain,
+                font=('Times New Roman',20),
+                text="Enter Kilometeres: ",
+                fg="yellow",
+                bg="blue")
+txtbox=Entry(winmain,width=15,
+             bg='pink',
+             fg='black',
+             font=("Times New Roman",20))
+txtboxlbl1=Label(winmain,
+                 font=('Times New Roman',20),
+                 text=" Miles: ",
+                 fg="yellow",
+                 bg="blue")
+txtbox2=Entry(winmain,width=15,
+              bg='pink',
+              fg='black',
+              font=("Times New Roman",20))
+    
+txtbox3=Entry(winmain,width=50,
+              bg='gray80',
+              fg='red',
+              font=("Times New Roman",20))
+button=Button(winmain,
+              text="MR QUIT",
+              fg="blue",
+              bg="yellow",
+              font=("Times New Roman",20),
+              command=quit)
+button2=Button(winmain,
+               text="CALCULATE",
+               fg="pink",
+               bg="blue",
+               font=("Times New Roman",25),
+               command=lambda:(WriteSlogan(txtbox)))
+                 
+button3=Button(winmain,
+               text="CLEAR",
+               fg="pink",
+               bg="blue",
+               font=("Times New Roman",25),
+               command=lambda:clearit())
+   
+    
+txt.pack(side='top')
+txtboxlbl.place(rely=0.15,relx=0.5,anchor=CENTER)
+txtbox.place(relx=0.5, rely=0.20, anchor=CENTER)
+txtboxlbl1.place(rely=0.26,relx=0.5,anchor=CENTER)
+txtbox2.place(rely=0.31,relx=0.5,anchor=CENTER)
+txtbox3.place(relx=0.5, rely=0.41, anchor=CENTER)
+button.place(relx=0.53, rely=0.9, anchor=CENTER)
+button2.place( rely=0.75,relx=0.35,x=2, y=-9, anchor=N)
+button3.place(rely=0.75,relx=0.65,x=2, y=-9, anchor=N)
+winmain.mainloop()
+    
+mainloop()
