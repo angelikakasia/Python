@@ -1,0 +1,217 @@
+import random
+
+def main():
+
+    name=input("                              Enter your name: ")
+
+    print("                                >>>>>>> HELLO ",name.upper(),"!!!!! LET'S PLAY<<<<<<")
+
+    totalg=input("                              Enter the limit of guesses: ")
+
+    guesses=totalg
+
+    if totalg=="" or totalg.isalpha():
+
+
+
+        
+
+        
+
+        guesses=15
+
+        print("\n"*2,"default limit is set to ", guesses, "guesses.")
+
+        print("\n"*4)
+
+    
+
+    
+
+    elif int(guesses) < 1:
+
+            
+
+            print("                                 Number cannot be negative. <<<<")
+
+            guesses=input("                              Enter the limit of guesses: ")
+
+            print("\n"*4)
+
+            if int(guesses) < 1:
+
+                print("                                  WRONG DATA")
+
+                again()
+
+            
+
+    else:
+
+        if totalg.isnumeric:
+
+        
+
+            guesses==int(totalg)
+
+            print("You set limit of your guesses to: ", guesses)
+
+        
+
+    numofguess=0
+
+    n = random.randint(1, 200)
+
+    guess=input("                          Choose an integer 1 to 200: ")
+
+    while n != "guess":
+
+        try:
+
+            
+
+            if int(guess) < 1 or int(guess) > 200:
+
+                print('>>>>Number must be between 1-200!!!!!!<<<<<<')
+
+                again()
+
+            elif len(guess)==0:
+
+                print('>>>>>Number cannot be negative')
+
+                again()
+
+            elif guess=="":
+
+                print("   >>>> INVALID DATA  <<<<<<")
+
+                again()
+
+        
+
+        
+
+            elif int(guess) < n:
+
+                numofguess= numofguess + 1
+
+                print ("                                    TOO LOW ! ")
+
+                print(" Total guesses: ", numofguess, "of ",guesses)
+
+                konik= int(guesses) - int(numofguess)
+
+                print(" Remaining guesses: ",konik)
+
+                print("\n"*15)
+
+                
+
+                if int(numofguess)-int(guesses)==0:
+
+                    
+
+                    print("                  You LOST. You used all your guesses!!!!!! ")
+
+                    print(" Total guesses: ", numofguess, "of ",guesses)
+
+                    print("\n"*5)
+
+                    again()
+
+                else:
+
+                    guess=input("                          Choose an integer 1 to 200: ")
+
+                        
+
+            
+
+                
+
+            elif int(guess) > n:
+
+                numofguess=numofguess + 1
+
+                print("                             TOO HIGH!!!!!! ")
+
+                print(" Total guesses: ", numofguess, "of ",guesses)
+
+                konik= int(guesses) - int(numofguess)
+
+                print(" Remaining guesses: ",konik)
+
+                print("\n"*15)
+
+                if int(numofguess)-int(guesses)==0:
+
+                    print("                  You LOST. You used all your guesses!!!!!! ")
+
+                    print(" Total guesses: ", numofguess, "of ",guesses)
+
+                    print("\n"*5)
+
+                    again()
+
+                else:
+
+                    guess=input("                          Choose an integer 1 to 200: ")
+
+                
+
+            
+
+            else:
+
+                print("                               WOW Oh lala!! YOU WON!!!")
+
+                print("         Total number of guesses: ", numofguess," Try to guess faster next time!!!")
+
+            
+
+                print("\n"*15)
+
+                
+
+                again()
+
+        except(ValueError,TypeError):
+
+            print("                    >>>>> INVALID DATA    ")
+
+            break
+
+            again()
+
+        except:
+
+            print("                  >>>>>>  INVALID DATA"       )
+
+            break
+
+            again()
+
+            
+
+def again():
+
+    print("\n"*15)
+
+    ans=input("----------Do you want to play again? y/n?: ----------")
+
+    if ans=="Y" or ans=="y":
+
+        
+
+        main()
+
+    else:
+
+        pass
+
+    print("------DONE------")
+
+main()
+
+again()
